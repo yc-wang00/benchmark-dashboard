@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3001; // Choose a port that does not conflict with your React app
+const port = 3009; // Choose a port that does not conflict with your React app
 
 app.use(express.json()); // Middleware to parse JSON bodies
 

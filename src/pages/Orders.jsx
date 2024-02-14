@@ -1,7 +1,7 @@
 import React from 'react';
 import { GridComponent, ColumnsDirective, ColumnDirective, Resize, Sort, ContextMenu, Filter, Page, ExcelExport, PdfExport, Edit, Inject, Scroll } from '@syncfusion/ej2-react-grids';
 
-import { ordersData, contextMenuItems } from '../data/dummy';
+import { testData, contextMenuItems, ordersGrid } from '../data/dummy';
 import { Header } from '../components';
 
 const Orders = () => {
@@ -11,7 +11,7 @@ const Orders = () => {
       <Header category="Page" title="Orders" />
       <GridComponent
         id="gridcomp"
-        dataSource={ordersData}
+        dataSource={testData}
         allowPaging
         allowSorting
         allowExcelExport
@@ -19,10 +19,10 @@ const Orders = () => {
         contextMenuItems={contextMenuItems}
         editSettings={editing}
       >
-        {/* <ColumnsDirective> */}
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          {/* {ordersGrid.map((item, index) => <ColumnDirective key={index} {...item} />)} */}
-        {/* </ColumnsDirective> */}
+        <ColumnsDirective>
+          eslint-disable-next-line react/jsx-props-no-spreading
+          {ordersGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
+        </ColumnsDirective>
         <Inject services={[Resize, Sort, ContextMenu, Filter, Page, ExcelExport, PdfExport]} />
       </GridComponent>
     </div>
