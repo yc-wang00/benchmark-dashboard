@@ -1,4 +1,5 @@
 CREATE DATABASE benchmark;
+
 USE benchmark;
 
 CREATE TABLE benchmark_data (

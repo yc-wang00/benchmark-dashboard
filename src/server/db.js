@@ -1,7 +1,7 @@
 // This file contains the database logic for the application. It uses the mysql2 package to connect to the database and perform operations such as getting all notes, getting a single note, and creating a new note.
 
-const mysql = require('mysql2');
-require('dotenv').config();
+const mysql = require("mysql2");
+require("dotenv").config();
 
 const pool = mysql
   .createPool({
@@ -13,7 +13,7 @@ const pool = mysql
   .promise();
 
 async function getBenchmarkDataALL() {
-  const [rows] = await pool.query('SELECT * FROM benchmark_data');
+  const [rows] = await pool.query("SELECT * FROM benchmark_data");
   return rows;
 }
 
@@ -24,7 +24,7 @@ async function getBenchmarkData(id) {
   FROM benchmark_data
   WHERE id = ?
   `,
-    [id],
+    [id]
   );
   return rows[0];
 }
@@ -80,7 +80,7 @@ async function createBenchmarkData(
   run_iterations,
   avg_req_duration_sec,
   max_req_duration_sec,
-  min_req_duration_sec,
+  min_req_duration_sec
 ) {
   const [result] = await pool.query(
     `
@@ -111,7 +111,7 @@ async function createBenchmarkData(
       avg_req_duration_sec,
       max_req_duration_sec,
       min_req_duration_sec,
-    ],
+    ]
   );
 
   const id = result.insertId;
