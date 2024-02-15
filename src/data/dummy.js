@@ -4,7 +4,7 @@ import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, Fi
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
 import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
-import { RiContactsLine, RiStockLine } from 'react-icons/ri';
+import { RiContactsLine, RiStockLine, RiDashboardLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
@@ -474,8 +474,8 @@ export const links = [
     title: 'Dashboard',
     links: [
       {
-        name: 'ecommerce',
-        icon: <FiShoppingBag />,
+        name: 'dashboard',
+        icon: <RiDashboardLine />,
       },
     ],
   },
@@ -484,8 +484,8 @@ export const links = [
     title: 'Pages',
     links: [
       {
-        name: 'orders',
-        icon: <AiOutlineShoppingCart />,
+        name: 'data-table',
+        icon: <AiOutlineBarChart />,
       },
       {
         name: 'employees',
@@ -496,66 +496,66 @@ export const links = [
         icon: <RiContactsLine />,
       },
     ],
-  }
-  // {
-  //   title: 'Apps',
-  //   links: [
-  //     {
-  //       name: 'calendar',
-  //       icon: <AiOutlineCalendar />,
-  //     },
-  //     {
-  //       name: 'kanban',
-  //       icon: <BsKanban />,
-  //     },
-  //     {
-  //       name: 'editor',
-  //       icon: <FiEdit />,
-  //     },
-  //     {
-  //       name: 'color-picker',
-  //       icon: <BiColorFill />,
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: 'Charts',
-  //   links: [
-  //     {
-  //       name: 'line',
-  //       icon: <AiOutlineStock />,
-  //     },
-  //     {
-  //       name: 'area',
-  //       icon: <AiOutlineAreaChart />,
-  //     },
+  },
+  {
+    title: 'Apps',
+    links: [
+      {
+        name: 'calendar',
+        icon: <AiOutlineCalendar />,
+      },
+      {
+        name: 'kanban',
+        icon: <BsKanban />,
+      },
+      {
+        name: 'editor',
+        icon: <FiEdit />,
+      },
+      {
+        name: 'color-picker',
+        icon: <BiColorFill />,
+      },
+    ],
+  },
+  {
+    title: 'Charts',
+    links: [
+      {
+        name: 'line',
+        icon: <AiOutlineStock />,
+      },
+      {
+        name: 'area',
+        icon: <AiOutlineAreaChart />,
+      },
 
-  //     {
-  //       name: 'bar',
-  //       icon: <AiOutlineBarChart />,
-  //     },
-  //     {
-  //       name: 'pie',
-  //       icon: <FiPieChart />,
-  //     },
-  //     {
-  //       name: 'financial',
-  //       icon: <RiStockLine />,
-  //     },
-  //     {
-  //       name: 'color-mapping',
-  //       icon: <BsBarChart />,
-  //     },
-  //     {
-  //       name: 'pyramid',
-  //       icon: <GiLouvrePyramid />,
-  //     },
-  //     {
-  //       name: 'stacked',
-  //       icon: <AiOutlineBarChart />,
-  //     },
-  //   ],
-  // },
+      {
+        name: 'bar',
+        icon: <AiOutlineBarChart />,
+      },
+      {
+        name: 'pie',
+        icon: <FiPieChart />,
+      },
+      {
+        name: 'financial',
+        icon: <RiStockLine />,
+      },
+      {
+        name: 'color-mapping',
+        icon: <BsBarChart />,
+      },
+      {
+        name: 'pyramid',
+        icon: <GiLouvrePyramid />,
+      },
+      {
+        name: 'stacked',
+        icon: <AiOutlineBarChart />,
+      },
+    ],
+  },
 ];
 
 export const cartData = [
@@ -631,25 +631,6 @@ export const earningData = [
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',
     pcColor: 'green-600',
-  },
-  {
-    icon: <FiBarChart />,
-    amount: '423,39',
-    percentage: '+38%',
-    title: 'Sales',
-    iconColor: 'rgb(228, 106, 118)',
-    iconBg: 'rgb(255, 244, 229)',
-
-    pcColor: 'green-600',
-  },
-  {
-    icon: <HiOutlineRefresh />,
-    amount: '39,354',
-    percentage: '-12%',
-    title: 'Refunds',
-    iconColor: 'rgb(0, 194, 146)',
-    iconBg: 'rgb(235, 250, 242)',
-    pcColor: 'red-600',
   },
 ];
 
@@ -871,12 +852,6 @@ export const userProfileData = [
 ];
 
 export const ordersGrid = [
-  // {
-  //   headerText: 'Image',
-  //   template: gridOrderImage,
-  //   textAlign: 'Center',
-  //   width: '120',
-  // },
   {
     field: 'OrderItems',
     headerText: 'Item',
@@ -2123,106 +2098,106 @@ export const employeesData = [
 
 export const testData = [
   {
-    "data_path": "/home/titan-yc/Workspace/pantheon/fabulinus/takeoff-benchmark/server-benchmark/data/mmlu_test_data.json",
-    "takeoff_image": "tytn/takeoff-pro:0.11.0-gpu",
-    "model_name": "TinyLlama/TinyLlama-1.1B-step-50K-105b",
-    "device": "cuda",
-    "max_batch_size": 16,
-    "max_seq_len": null,
-    "backend": null,
-    "expected_duration": "10m",
-    "expected_vus": 10,
-    "expected_iterations": 20,
-    "git_commit_hash": "389acf0369dc0e7ee5da7bcfc7a2e66ea20c993a",
-    "num_gpu": 1,
-    "gpu_name": "NVIDIA GeForce RTX 3060",
-    "gpu_memory": 12.0,
-    "gpu_memory_unit": "GB",
-    "num_passes": 20,
-    "num_fails": 0,
-    "run_duration_sec": 14.800946902,
-    "run_vus": 10,
-    "run_iterations": 20,
-    "avg_req_duration_sec": 4.892404925950001,
-    "max_req_duration_sec": 7.997243845,
-    "min_req_duration_sec": 1.271530339
+    data_path: '/home/titan-yc/Workspace/pantheon/fabulinus/takeoff-benchmark/server-benchmark/data/mmlu_test_data.json',
+    takeoff_image: 'tytn/takeoff-pro:0.11.0-gpu',
+    model_name: 'TinyLlama/TinyLlama-1.1B-step-50K-105b',
+    device: 'cuda',
+    max_batch_size: 16,
+    max_seq_len: null,
+    backend: null,
+    expected_duration: '10m',
+    expected_vus: 10,
+    expected_iterations: 20,
+    git_commit_hash: '389acf0369dc0e7ee5da7bcfc7a2e66ea20c993a',
+    num_gpu: 1,
+    gpu_name: 'NVIDIA GeForce RTX 3060',
+    gpu_memory: 12.0,
+    gpu_memory_unit: 'GB',
+    num_passes: 20,
+    num_fails: 0,
+    run_duration_sec: 14.800946902,
+    run_vus: 10,
+    run_iterations: 20,
+    avg_req_duration_sec: 4.892404925950001,
+    max_req_duration_sec: 7.997243845,
+    min_req_duration_sec: 1.271530339,
   },
   {
-    "data_path": "/home/titan-yc/Workspace/pantheon/fabulinus/takeoff-benchmark/server-benchmark/data/mmlu_test_data.json",
-    "takeoff_image": "tytn/takeoff-pro:0.11.0-gpu",
-    "model_name": "TinyLlama/TinyLlama-1.1B-step-50K-105b",
-    "device": "cuda",
-    "max_batch_size": 16,
-    "max_seq_len": null,
-    "backend": null,
-    "expected_duration": "10m",
-    "expected_vus": 10,
-    "expected_iterations": 20,
-    "git_commit_hash": "389acf0369dc0e7ee5da7bcfc7a2e66ea20c993a",
-    "num_gpu": 1,
-    "gpu_name": "NVIDIA GeForce RTX 3060",
-    "gpu_memory": 12.0,
-    "gpu_memory_unit": "GB",
-    "num_passes": 20,
-    "num_fails": 0,
-    "run_duration_sec": 14.800946902,
-    "run_vus": 10,
-    "run_iterations": 20,
-    "avg_req_duration_sec": 4.892404925950001,
-    "max_req_duration_sec": 7.997243845,
-    "min_req_duration_sec": 1.271530339
+    data_path: '/home/titan-yc/Workspace/pantheon/fabulinus/takeoff-benchmark/server-benchmark/data/mmlu_test_data.json',
+    takeoff_image: 'tytn/takeoff-pro:0.11.0-gpu',
+    model_name: 'TinyLlama/TinyLlama-1.1B-step-50K-105b',
+    device: 'cuda',
+    max_batch_size: 16,
+    max_seq_len: null,
+    backend: null,
+    expected_duration: '10m',
+    expected_vus: 10,
+    expected_iterations: 20,
+    git_commit_hash: '389acf0369dc0e7ee5da7bcfc7a2e66ea20c993a',
+    num_gpu: 1,
+    gpu_name: 'NVIDIA GeForce RTX 3060',
+    gpu_memory: 12.0,
+    gpu_memory_unit: 'GB',
+    num_passes: 20,
+    num_fails: 0,
+    run_duration_sec: 14.800946902,
+    run_vus: 10,
+    run_iterations: 20,
+    avg_req_duration_sec: 4.892404925950001,
+    max_req_duration_sec: 7.997243845,
+    min_req_duration_sec: 1.271530339,
   },
   {
-    "data_path": "/home/titan-yc/Workspace/pantheon/fabulinus/takeoff-benchmark/server-benchmark/data/mmlu_test_data.json",
-    "takeoff_image": "tytn/takeoff-pro:0.11.0-gpu",
-    "model_name": "TinyLlama/TinyLlama-1.1B-step-50K-105b",
-    "device": "cuda",
-    "max_batch_size": 16,
-    "max_seq_len": null,
-    "backend": null,
-    "expected_duration": "10m",
-    "expected_vus": 10,
-    "expected_iterations": 20,
-    "git_commit_hash": "389acf0369dc0e7ee5da7bcfc7a2e66ea20c993a",
-    "num_gpu": 1,
-    "gpu_name": "NVIDIA GeForce RTX 3060",
-    "gpu_memory": 12.0,
-    "gpu_memory_unit": "GB",
-    "num_passes": 20,
-    "num_fails": 0,
-    "run_duration_sec": 14.800946902,
-    "run_vus": 10,
-    "run_iterations": 20,
-    "avg_req_duration_sec": 4.892404925950001,
-    "max_req_duration_sec": 7.997243845,
-    "min_req_duration_sec": 1.271530339
+    data_path: '/home/titan-yc/Workspace/pantheon/fabulinus/takeoff-benchmark/server-benchmark/data/mmlu_test_data.json',
+    takeoff_image: 'tytn/takeoff-pro:0.11.0-gpu',
+    model_name: 'TinyLlama/TinyLlama-1.1B-step-50K-105b',
+    device: 'cuda',
+    max_batch_size: 16,
+    max_seq_len: null,
+    backend: null,
+    expected_duration: '10m',
+    expected_vus: 10,
+    expected_iterations: 20,
+    git_commit_hash: '389acf0369dc0e7ee5da7bcfc7a2e66ea20c993a',
+    num_gpu: 1,
+    gpu_name: 'NVIDIA GeForce RTX 3060',
+    gpu_memory: 12.0,
+    gpu_memory_unit: 'GB',
+    num_passes: 20,
+    num_fails: 0,
+    run_duration_sec: 14.800946902,
+    run_vus: 10,
+    run_iterations: 20,
+    avg_req_duration_sec: 4.892404925950001,
+    max_req_duration_sec: 7.997243845,
+    min_req_duration_sec: 1.271530339,
   },
   {
-    "data_path": "/home/titan-yc/Workspace/pantheon/fabulinus/takeoff-benchmark/server-benchmark/data/mmlu_test_data.json",
-    "takeoff_image": "tytn/takeoff-pro:0.11.0-gpu",
-    "model_name": "TinyLlama/TinyLlama-1.1B-step-50K-105b",
-    "device": "cuda",
-    "max_batch_size": 16,
-    "max_seq_len": null,
-    "backend": null,
-    "expected_duration": "10m",
-    "expected_vus": 10,
-    "expected_iterations": 20,
-    "git_commit_hash": "389acf0369dc0e7ee5da7bcfc7a2e66ea20c993a",
-    "num_gpu": 1,
-    "gpu_name": "NVIDIA GeForce RTX 3060",
-    "gpu_memory": 12.0,
-    "gpu_memory_unit": "GB",
-    "num_passes": 20,
-    "num_fails": 0,
-    "run_duration_sec": 14.800946902,
-    "run_vus": 10,
-    "run_iterations": 20,
-    "avg_req_duration_sec": 4.892404925950001,
-    "max_req_duration_sec": 7.997243845,
-    "min_req_duration_sec": 1.271530339
-  }
-]
+    data_path: '/home/titan-yc/Workspace/pantheon/fabulinus/takeoff-benchmark/server-benchmark/data/mmlu_test_data.json',
+    takeoff_image: 'tytn/takeoff-pro:0.11.0-gpu',
+    model_name: 'TinyLlama/TinyLlama-1.1B-step-50K-105b',
+    device: 'cuda',
+    max_batch_size: 16,
+    max_seq_len: null,
+    backend: null,
+    expected_duration: '10m',
+    expected_vus: 10,
+    expected_iterations: 20,
+    git_commit_hash: '389acf0369dc0e7ee5da7bcfc7a2e66ea20c993a',
+    num_gpu: 1,
+    gpu_name: 'NVIDIA GeForce RTX 3060',
+    gpu_memory: 12.0,
+    gpu_memory_unit: 'GB',
+    num_passes: 20,
+    num_fails: 0,
+    run_duration_sec: 14.800946902,
+    run_vus: 10,
+    run_iterations: 20,
+    avg_req_duration_sec: 4.892404925950001,
+    max_req_duration_sec: 7.997243845,
+    min_req_duration_sec: 1.271530339,
+  },
+];
 
 export const ordersData = [
   {
@@ -2234,11 +2209,11 @@ export const ordersData = [
     Location: 'USA',
     Status: 'pending',
     StatusBg: '#FB9678',
-    test: "one",
-    test2: "two",
-    test3: "3",
-    test4: "o4",
-    test5: "one4",
+    test: 'one',
+    test2: 'two',
+    test3: '3',
+    test4: 'o4',
+    test5: 'one4',
     ProductImage:
       product1,
     ProductImage:
@@ -3236,25 +3211,6 @@ export const pieChartData = [
   { x: 'Facilities', y: 18, text: '18%' },
   { x: 'Taxes', y: 14, text: '14%' },
   { x: 'Insurance', y: 16, text: '16%' },
-];
-
-export const contextMenuItems = [
-  'AutoFit',
-  'AutoFitAll',
-  'SortAscending',
-  'SortDescending',
-  'Copy',
-  'Edit',
-  'Delete',
-  'Save',
-  'Cancel',
-  'PdfExport',
-  'ExcelExport',
-  'CsvExport',
-  'FirstPage',
-  'PrevPage',
-  'LastPage',
-  'NextPage',
 ];
 
 export const ecomPieChartData = [
