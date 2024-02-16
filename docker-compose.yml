@@ -2,38 +2,39 @@ version: '3.8'
 services:
   frontend:
     build:
-      context: ./path/to/frontend
+      context: ./react-frontend
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "4000:80"
     depends_on:
       - server
 
   server:
     build:
-      context: ./path/to/server
+      context: ./node-server
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3010:80"
     depends_on:
       - db
     environment:
-      MYSQL_HOST: db
-      MYSQL_USER: exampleuser
-      MYSQL_PASSWORD: examplepass
-      MYSQL_DB: exampledb
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DB: ${MYSQL_DATABASE}
 
   db:
     image: mysql:5.7
     ports:
-      - "3306:3306"
+      - "3307:3306"
+    command: --init-file /data/application/init.sql
+
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: exampledb
-      MYSQL_USER: exampleuser
-      MYSQL_PASSWORD: examplepass
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
     volumes:
       - db-data:/var/lib/mysql
+      - ./mysql-db/create_schema.sql:/data/application/init.sql
 
 volumes:
   db-data:
