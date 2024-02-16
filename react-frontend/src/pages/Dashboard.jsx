@@ -60,7 +60,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3009/benchmarks'); // Adjust endpoint as necessary
+        const response = await fetch('http://localhost:6868/benchmarks'); // Adjust endpoint as necessary
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

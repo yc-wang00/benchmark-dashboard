@@ -5,7 +5,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'username'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
 USE benchmark;
-DROP TABLE IF EXISTS benchmark_data;
+
 CREATE TABLE IF NOT EXISTS benchmark_data (
     id INT AUTO_INCREMENT PRIMARY KEY,
     data_path VARCHAR(255),
