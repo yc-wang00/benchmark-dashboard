@@ -1,15 +1,16 @@
-import { React, useState, useEffect} from 'react';
+/* eslint-disable no-console */
+import { React, useState, useEffect } from 'react';
 import { BsCurrencyDollar } from 'react-icons/bs';
-import { IoIosTimer } from "react-icons/io";
+import { IoIosTimer } from 'react-icons/io';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
-import { MdReportGmailerrorred } from "react-icons/md";
-import { RiEmotionHappyLine } from "react-icons/ri";
+import { MdReportGmailerrorred } from 'react-icons/md';
+import { RiEmotionHappyLine } from 'react-icons/ri';
 
+import { format } from 'date-fns';
 import { dropdownData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
-import { format } from 'date-fns';
-
+// eslint-disable-next-line no-unused-vars
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
     <DropDownListComponent id="time" fields={{ text: 'Time', value: 'Id' }} style={{ border: 'none', color: (currentMode === 'Dark') && 'white' }} value="1" dataSource={dropdownData} popupHeight="220px" popupWidth="120px" />
@@ -21,7 +22,7 @@ function formatDate(dateString) {
 }
 
 function aggregateBenchmarkData(data) {
-  console.log("data", data);
+  console.log('data', data);
   const result = data.reduce(
     (acc, item) => {
       acc.num_passes += item.num_passes;
@@ -29,7 +30,7 @@ function aggregateBenchmarkData(data) {
       acc.totalTime += item.run_duration_sec / 60; // Convert seconds to minutes
       return acc;
     },
-    { num_passes: 0, num_fails: 0, totalTime: 0 } // Initial accumulator values
+    { num_passes: 0, num_fails: 0, totalTime: 0 }, // Initial accumulator values
   );
 
   // Optional: Round the total time to a fixed number of decimal places if needed
@@ -51,7 +52,7 @@ function getMostRecentData(data) {
 }
 
 const Dashboard = () => {
-  const { currentColor, currentMode } = useStateContext();  
+  const { currentColor } = useStateContext();
 
   const [data, setData] = useState([]); // State to hold fetched data
   const [benchmarkData, setBenchmarkData] = useState(null); // State to hold aggregated benchmark data
@@ -67,13 +68,11 @@ const Dashboard = () => {
         console.log(result);
         setData(result); // Set fetched data into state
 
-        const benchmarkData = aggregateBenchmarkData(result);
-        setBenchmarkData(benchmarkData);
+        setBenchmarkData(aggregateBenchmarkData(result));
 
-        const recentData = getMostRecentData(result);
-        recentData.created_at = formatDate(recentData.created_at);
-        setRecentData(recentData);
-
+        const recentDataResult = getMostRecentData(result);
+        recentDataResult.created_at = formatDate(recentDataResult.created_at);
+        setRecentData(recentDataResult);
       } catch (error) {
         console.error('Failed to fetch data: ', error);
       }
@@ -83,8 +82,8 @@ const Dashboard = () => {
   }, []);
 
   const numBenchmarks = data.length;
-  console.log("benchmarkData", benchmarkData);
-  console.log("recentData", recentData);
+  console.log('benchmarkData', benchmarkData);
+  console.log('recentData', recentData);
 
   const benchmarkStatData = [
     {
@@ -166,7 +165,7 @@ const Dashboard = () => {
           </div>
           <div className="mt-10 flex gap-10 flex-wrap justify-center">
             <div className=" border-r-1 border-color m-4 pr-10">
-              <div className='mt-2'>
+              <div className="mt-2">
                 <p className="text-3xl font-semibold">{recentData?.avg_req_duration_sec.toFixed(2)}s</p>
                 <p className="text-gray-500 mt-1">Avg Request Duration</p>
               </div>

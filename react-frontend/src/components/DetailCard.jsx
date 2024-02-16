@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React from 'react';
 
 const DetailCard = ({ rowData, onClose }) => (
