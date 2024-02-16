@@ -4,10 +4,8 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Dashboard, BenchmarkDataTable, Calendar, Employees, Customers, Kanban, ColorPicker, Editor } from './pages';
+import { Dashboard, BenchmarkDataTable } from './pages';
 import './App.css';
-
-import { Line, Area, Bar, Pie, Financial, ColorMapping, Pyramid, Stacked } from './pages';
 
 import { useStateContext } from './contexts/ContextProvider';
 
