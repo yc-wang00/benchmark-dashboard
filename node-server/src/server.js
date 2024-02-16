@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 
-const fs = require("fs").promises; // Use promises for async/await syntax
 const {
   getBenchmarkData,
   getBenchmarkDataALL,
@@ -12,7 +11,7 @@ const app = express();
 const port = 3009; // Choose a port that does not conflict with your React app
 
 const corsOptions = {
-  origin: "http://localhost:3001",
+  origin: "http://localhost:3000",
 };
 app.use(cors(corsOptions));
 
