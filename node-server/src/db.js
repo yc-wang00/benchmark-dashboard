@@ -6,11 +6,19 @@ require("dotenv").config();
 const pool = mysql
   .createPool({
     host: process.env.MYSQL_HOST,
+    port: process.env.MYSQL_DOCKER_PORT,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DATABASE,
   })
   .promise();
+
+console.log("Connected to MySQL");
+console.log("host: ", process.env.MYSQL_HOST);
+console.log("port: ", process.env.MYSQL_DOCKER_PORT);
+console.log("user: ", process.env.MYSQL_USER);
+console.log("password: ", process.env.MYSQL_PASSWORD);
+console.log("database: ", process.env.MYSQL_DATABASE);
 
 async function getBenchmarkDataALL() {
   const [rows] = await pool.query("SELECT * FROM benchmark_data");

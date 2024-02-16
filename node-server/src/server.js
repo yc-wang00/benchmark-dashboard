@@ -9,10 +9,10 @@ const {
 } = require("./db.js");
 
 const app = express();
-const port = process.env.SERVER_PORT || 80;
+const port = process.env.NODE_DOCKER_PORT || 80;
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "http://localhost:4000",
 };
 app.use(cors(corsOptions));
 

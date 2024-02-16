@@ -1,10 +1,13 @@
-CREATE DATABASE benchmark;
+CREATE DATABASE IF NOT EXISTS benchmark;
+
+CREATE USER IF NOT EXISTS 'username'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
 
 USE benchmark;
-
-CREATE TABLE benchmark_data (
+DROP TABLE IF EXISTS benchmark_data;
+CREATE TABLE IF NOT EXISTS benchmark_data (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    uuid CHAR(36) NOT NULL DEFAULT (UUID()),
     data_path VARCHAR(255),
     takeoff_image VARCHAR(255),
     model_name VARCHAR(255),
