@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 
 const {
   getBenchmarkData,
@@ -8,7 +9,7 @@ const {
 } = require("./db.js");
 
 const app = express();
-const port = 3009; // Choose a port that does not conflict with your React app
+const port = process.env.PORT || 80;
 
 const corsOptions = {
   origin: "http://localhost:3000",
