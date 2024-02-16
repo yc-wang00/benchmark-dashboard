@@ -12,7 +12,7 @@ const app = express();
 const port = 3009; // Choose a port that does not conflict with your React app
 
 const corsOptions = {
-  origin: "http://localhost:8080",
+  origin: "http://localhost:3001",
 };
 app.use(cors(corsOptions));
 
@@ -21,6 +21,12 @@ app.use(express.json()); // Middleware to parse JSON bodies
 // Test route
 app.get("/", (req, res) => {
   res.send("API is working!");
+});
+
+app.get("/num-benchmarks", async (req, res) => {
+  const benchmarkDataAll = await getBenchmarkDataALL();
+  console.log(benchmarkDataAll);
+  res.send({ numBenchmarks: benchmarkDataAll.length });
 });
 
 app.get("/benchmarks", async (req, res) => {
@@ -95,28 +101,4 @@ app.use((err, req, res, next) => {
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
-});
-
-const readDataFromFile = async (filePath) => {
-  try {
-    const data = await fs.readFile(filePath, "utf8");
-    return JSON.parse(data);
-  } catch (err) {
-    console.error("Error reading file:", err);
-    throw err; // Rethrow the error to handle it in the endpoint
-  }
-};
-
-app.get("/file-data", async (req, res) => {
-  console.log("Reading data from file");
-  const path = require("path");
-  const filePath = path.join(__dirname, "test.json");
-  // const filePath = ''; // Update with your file's path
-  try {
-    const data = await readDataFromFile(filePath);
-    res.json(data);
-  } catch (err) {
-    console.error("Error reading data from file", err);
-    res.status(500).json({ message: "Failed to read data from file" });
-  }
 });
