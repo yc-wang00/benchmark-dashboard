@@ -4,6 +4,9 @@ services:
     build:
       context: ./react-frontend
       dockerfile: Dockerfile
+      args:
+        REACT_APP_BACKEND_HOST: ${NODE_SERVER_HOST} 
+        REACT_APP_BACKEND_PORT: ${NODE_LOCAL_PORT}
     ports:
       - "4000:80"
     depends_on:
