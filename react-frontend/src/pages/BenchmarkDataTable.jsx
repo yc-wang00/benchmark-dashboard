@@ -12,10 +12,16 @@ const BenchmarkDataTable = () => {
   const [selectedRow, setSelectedRow] = useState(null); // State to track the selected row
 
   const [data, setData] = useState([]); // State to hold fetched data
+
+  const backendHost = process.env.REACT_APP_BACKEND_HOST;
+  const backendPort = process.env.REACT_APP_BACKEND_PORT;
+  console.log('backendHost', backendHost);
+  console.log('backendPort', backendPort);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:6868/benchmarks'); // Adjust endpoint as necessary
+        const response = await fetch(`${backendHost}:${backendPort}/benchmarks`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
